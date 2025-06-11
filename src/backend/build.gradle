@@ -1,0 +1,62 @@
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'dev.victormartin.rac'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Oracle Database
+    implementation 'com.oracle.database.jdbc:ojdbc17:23.8.0.25.04'
+    implementation 'com.oracle.database.jdbc:ucp17:23.8.0.25.04'
+    implementation 'com.oracle.database.ha:ons:23.8.0.25.04'
+
+    // Prometheus client libraries - using latest versions compatible with Java 23
+    implementation 'io.prometheus:simpleclient:0.16.0'
+    implementation 'io.prometheus:simpleclient_httpserver:0.16.0'
+    implementation 'io.prometheus:simpleclient_common:0.16.0'
+    
+    // Logging
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    
+    // Configuration
+    implementation 'com.typesafe:config:1.4.3'
+    
+    // Liquibase
+    implementation 'org.liquibase:liquibase-core:4.31.0'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.testcontainers:oracle-xe:1.19.3'
+    testImplementation 'org.testcontainers:junit-jupiter:1.19.3'
+
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'dev.victormartin.rac.Main'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}

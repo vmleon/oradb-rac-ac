@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-pings-sequence
+      author: victormartin
+      changes:
+        - createSequence:
+            sequenceName: pings_seq
+            startValue: 1
+            incrementBy: 1
+            
+  - changeSet:
+      id: 001-create-pings-table
+      author: victormartin
+      changes:
+        - createTable:
+            tableName: pings
+            columns:
+              - column:
+                  name: id
+                  type: NUMBER
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+              - column:
+                  name: origin
+                  type: VARCHAR2(100)
+                  constraints:
+                    nullable: false

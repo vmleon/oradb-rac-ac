@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-add-timestamp-fields
+      author: victormartin
+      changes:
+        - addColumn:
+            tableName: pings
+            columns:
+              - column:
+                  name: client_timestamp
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: server_timestamp
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
