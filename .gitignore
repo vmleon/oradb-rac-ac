@@ -9,6 +9,8 @@ generated/
 *.zip
 *.bkp
 
+/data/
+
 # Terraform
 **/.terraform/*
 *.tfstate
@@ -199,6 +201,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+application-local.properties
 HELP.md
 .gradle
 build/

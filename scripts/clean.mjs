@@ -16,7 +16,11 @@ await $`rm -f ${privateKeyPath}`;
 const publicKeyPath = config.get("publicKeyPath");
 await $`rm -f ${publicKeyPath}`;
 
-const filesToDelete = ["./tf/generated", "./tf/terraform.tfvars", "./.certs"];
+const filesToDelete = [
+  "./tf/app/generated",
+  "./tf/app/terraform.tfvars",
+  "./.certs",
+];
 
 filesToDelete.forEach(async (filePath) => {
   await $`rm -rf ${filePath}`;

@@ -25,7 +25,7 @@ const compartmentName = config.get("compartmentName");
 await generateTFVars();
 
 async function generateTFVars() {
-  const tfVarsPath = "tf/terraform.tfvars";
+  const tfVarsPath = "tf/app/terraform.tfvars";
 
   const tfvarsTemplate = await fs.readFile(`${tfVarsPath}.mustache`, "utf-8");
 
@@ -52,7 +52,7 @@ async function generateTFVars() {
 
   console.log(`File ${chalk.green(tfVarsPath)} created`);
 
-  console.log(`1. ${chalk.yellow("cd tf")}`);
+  console.log(`1. ${chalk.yellow("cd tf/app")}`);
   console.log(`2. ${chalk.yellow("terraform init")}`);
   console.log(`3. ${chalk.yellow("terraform apply -auto-approve")}`);
 }

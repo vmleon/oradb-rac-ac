@@ -30,24 +30,6 @@ cd scripts/ && npm install && cd ..
 
 ### Build components
 
-Build website
-
-```bash
-cd src/web
-```
-
-```bash
-npm install
-```
-
-```bash
-npm run build
-```
-
-```bash
-cd ../..
-```
-
 Build Backend
 
 ```bash
@@ -55,7 +37,7 @@ cd src/backend
 ```
 
 ```bash
-./gradlew clean bootJar
+./gradlew clean shadowJar
 ```
 
 ```bash
@@ -81,13 +63,13 @@ Run the commands that `tfvars.mjs` output in yellow one by one.
 > Alternative: One liner for the yellow commands (for easy copy paste)
 >
 > ```bash
-> cd tf && terraform init && terraform apply -auto-approve
+> cd tf/app && terraform init && terraform apply -auto-approve
 > ```
 
 Come back to the root folder:
 
 ```bash
-cd ..
+cd ../..
 ```
 
 ### Connect to Database
@@ -116,10 +98,10 @@ exit
 
 ### Clean up
 
-Go to the folder `tf`.
+Go to the folder `tf/app`.
 
 ```bash
-cd tf
+cd tf/app
 ```
 
 Run the Terraform destroy:
@@ -131,7 +113,7 @@ terraform destroy -auto-approve
 Come back to the root compartment:
 
 ```bash
-cd ..
+cd ../..
 ```
 
 Clean all auxiliary files:
