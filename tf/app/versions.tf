@@ -7,7 +7,7 @@ terraform {
     }
     local = {
       source  = "hashicorp/local"
-      version = "~> 2.5.2"
+      version = "2.5.2"
       # https://registry.terraform.io/providers/hashicorp/local/
     }
     random = {

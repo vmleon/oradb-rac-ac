@@ -34,3 +34,13 @@ variable "cert_fullchain" {
 variable "cert_private_key" {
   type = string
 }
+
+variable "base_db_shape" {
+  type = string
+  default = "VM.Standard.E5.Flex"
+}
+
+variable "artifacts_par_expiration_in_days" {
+  type    = number
+  default = 7
+}
